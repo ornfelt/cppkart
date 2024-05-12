@@ -37,7 +37,6 @@ void Geometry::Draw(GLuint modelMatrixLocation, glm::mat4& modelMatrix, GLuint c
 {
 
     vao->Bind();
-    //glBindTexture(GL_TEXTURE_2D, carTexID);
     glUniformMatrix4fv(modelMatrixLocation, 1, GL_FALSE, glm::value_ptr(modelMatrix));
     glDrawElements(GL_TRIANGLES, (sizeof(GLuint) * _indices.size()) / sizeof(int), GL_UNSIGNED_INT, 0);
 

@@ -165,7 +165,7 @@ void JXGame::Run() {
                 //! Hacky way to get shared vertices from Geometry Object
 
                 RenderRsrcManager& res = renderer.get()->getRessourcePtr();
-                std::shared_ptr<Geometry> terrainGeom = res.tryGetGeometry("../src/ressources/Landscape01.obj");
+                std::shared_ptr<Geometry> terrainGeom = res.tryGetGeometry("../src/ressources/DE_Map1/Landscape01.obj");
                 std::vector<GLfloat> terrainVerts = terrainGeom.get()->_vertices;
 
                 GameDebugHelper::ExportVertexMappingToFile(terrainVerts, "../src/ressources/cpp_vertex_mapping.txt");
@@ -206,7 +206,8 @@ void JXGame::Run() {
     // Update Terrain Physics
 
 
-    physicsChunkManager.get()->update(pX,pZ);
+    //!For some reason the chunk manager is crashing the program when Multi-tex object comes in!?
+    //physicsChunkManager.get()->update(pX,pZ);
 
     
     auto currentFrame = std::chrono::steady_clock::now();

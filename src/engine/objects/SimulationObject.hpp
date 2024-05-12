@@ -10,13 +10,14 @@
 #include<glm/gtx/rotate_vector.hpp>
 #include<glm/gtx/vector_angle.hpp>
 
+#include <vector>
 #include <memory>
 
 class SimulationObject {
 
     public:
         std::string modelPath;
-        std::string texPath;
+        std::vector<std::string> texPathVec;
 
         glm::vec3 position;
         glm::quat rotation;
@@ -33,6 +34,7 @@ class SimulationObject {
         SimType type;
 
     SimulationObject(std::string objPath, std::string texturePath);
+    SimulationObject(std::string objPath, std::vector<std::string> texturePathVec);
 
    // virtual void setPosition(const glm::vec3& pos);
 

@@ -32,8 +32,12 @@ void ObjModel::LoadObj(const std::string& filepath) {
         return;
     }
 
-    // Assume only one mesh in .obj file
-    aiMesh* mesh = scene->mMeshes[0];
+    // Assume only one mesh in .obj file, take the last one
+
+    aiMesh* mesh = scene->mMeshes[scene->mNumMeshes - 1];
+
+    //aiMesh* mesh = scene->mMeshes[0];
+
 
     // Get the material for the mesh
     aiMaterial* material = scene->mMaterials[mesh->mMaterialIndex];

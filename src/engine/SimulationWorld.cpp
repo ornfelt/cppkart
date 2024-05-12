@@ -24,8 +24,20 @@ SimulationWorld::SimulationWorld() {
 
     entities.push_back(simObj2);
 
-}
+    // **** MULTI TEXTURE TESTING ****
 
+    std::vector<std::string> aztec_map_texs = {
+        "../src/ressources/DE_Aztec/c_mossy_rocks.jpg",
+        "../src/ressources/DE_Aztec/c_concrete_wall.jpg"
+    };
+
+    auto simObj3 = std::make_shared<SimulationObject>("../src/ressources/DE_Aztec/DE_AZTEC_MAP.obj", aztec_map_texs);
+
+    simObj3->objModelMatrix = glm::scale(glm::mat4(1.0f), glm::vec3(1.0f, 1.0f, 1.0f));
+
+    entities.push_back(simObj3);
+
+}
 
 void SimulationWorld::updateVehicleControls(GameInputState::Control accelerationControl, GameInputState::Control turnControl) {
     // Handle acceleration or braking based on the accelerationControl parameter

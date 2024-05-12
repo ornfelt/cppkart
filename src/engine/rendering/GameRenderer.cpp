@@ -64,8 +64,8 @@ void GameRenderer::RenderALL(bool bulletDebugDraw)
 
   renderObjects();
 
-  glCullFace(GL_BACK);
-  glEnable(GL_CULL_FACE);
+  //glCullFace(GL_BACK);
+  //glEnable(GL_CULL_FACE);
 
   camera->Matrix(45.0f, 0.1f, 1000.0f, mainShader, "camMatrix"); //! IMPORTANT
 }
@@ -81,12 +81,39 @@ void GameRenderer::renderObjects()
   for (const auto &instruction : drawList)
   {
 
-    instruction.tex.get()->Bind();
+    if (instruction.texVec.empty() || !instruction.texVec[0]) {
+            std::cerr << "Texture pointer is null or vector is empty, skipping texture bind." << std::endl;
+            continue; // Skip this iteration if there's no valid texture to bind
+    }
+
+	GLuint numTexUnit = glGetUniformLocation(mainShader->ID, "numTextures");
+	mainShader->Activate();
+	glUniform1i(numTexUnit, instruction.texVec.size());
+
+  printf("Num Textures: %d\n", instruction.texVec.size());
+
+    for (int i = 0; i < instruction.texVec.size(); i++) {
+    
+      auto tex = instruction.texVec[i];
+      glActiveTexture(GL_TEXTURE0+i); // Active proper texture unit before binding
+      tex.get()->Bind(); 
+
+    }
+
+        GLenum error;
+    while ((error = glGetError()) != GL_NO_ERROR) {
+        std::cerr << "OpenGL Error: " << std::hex << error << std::endl;
+    }
 
     glm::mat4 tempMatrix = instruction.modelMatrix; // Create a non-const copy
     instruction.geometry->Draw(modelMatrixLOC, tempMatrix, colorUniformLocation, false);
 
-    instruction.tex.get()->Unbind();
+    for(auto tex : instruction.texVec) { tex.get()->Unbind(); }
+
+    while ((error = glGetError()) != GL_NO_ERROR) {
+        std::cerr << "OpenGL Error: " << std::hex << error << std::endl;
+    }
+
   }
 }
 

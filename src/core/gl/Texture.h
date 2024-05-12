@@ -16,6 +16,10 @@ public:
 	GLenum type;
 	Texture(std::string image, GLenum texType, GLenum slot, GLenum pixelType, bool rgbAlpha);
 
+
+	//Assign numTex
+	void setNumTextures(std::shared_ptr<Shader>& shader, GLuint numTextures);
+
 	// Assigns a texture unit to a texture
 	void texUnit(std::shared_ptr<Shader>& shader, const char* uniform, GLuint unit);
 	// Binds a texture

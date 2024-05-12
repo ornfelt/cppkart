@@ -65,6 +65,13 @@ void Texture::texUnit(std::shared_ptr<Shader>& shader, const char* uniform, GLui
 	printf("Successfully loaded TexUnit");
 }
 
+void Texture::setNumTextures(std::shared_ptr<Shader>& shader, GLuint numTextures)
+{
+	GLuint numTexUnit = glGetUniformLocation(shader->ID, "numTextures");
+	shader->Activate();
+	glUniform1i(numTexUnit, numTextures);
+}
+
 void Texture::Bind()
 {
 	glBindTexture(type, ID);

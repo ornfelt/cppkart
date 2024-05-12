@@ -16,7 +16,7 @@ struct RenderInstruction {
 
     std::shared_ptr<Geometry> geometry; // Use shared_ptr to Geometry
     
-    std::shared_ptr<Texture> tex;
+    std::vector<std::shared_ptr<Texture>> texVec; // For multi-texture support
 };
 
 typedef std::vector<RenderInstruction> RenderList;

@@ -1,26 +1,26 @@
 #version 330 core
 
-// Outputs colors in RGBA
 out vec4 FragColor;
 
-
-// Inputs the color from the Vertex Shader
 in vec3 color;
-// Inputs the texture coordinates from the Vertex Shader
 in vec2 texCoord;
 
-// Gets the Texture Unit from the main function
-uniform sampler2D tex0;
-// Uniform to switch between texture and solid color
+uniform sampler2D tex0; // For the first texture
+uniform sampler2D tex1; // For the second texture
 uniform bool useTexture;
+uniform int numTextures; // Number of textures to use
 
 void main()
 {
     if (useTexture) {
-        // Sample the texture if useTexture is true
-        FragColor = texture(tex0, texCoord);
+        if (numTextures > 1) {
+            vec4 color0 = texture(tex0, texCoord);
+            vec4 color1 = texture(tex1, texCoord);
+            FragColor = mix(color0, color1, 0.5); // Simple blend, customize as needed
+        } else {
+            FragColor = texture(tex0, texCoord); // Default to the first texture if only one is present
+        }
     } else {
-        // Output the solid color if useTexture is false
-		FragColor = vec4(color, 1.0); //texture(tex0, texCoord);
+        FragColor = vec4(color, 1.0); // Fallback to solid color
     }
 }
