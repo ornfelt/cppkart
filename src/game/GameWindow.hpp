@@ -1,7 +1,8 @@
 #ifndef GAMEWINDOW_HPP
 #define GAMEWINDOW_HPP
 
-#include <SDL2/SDL.h>
+//#include <SDL2/SDL.h>
+#include <SDL.h>
 #include <glad/glad.h>
 #include <glm/vec2.hpp>
 #include <string>

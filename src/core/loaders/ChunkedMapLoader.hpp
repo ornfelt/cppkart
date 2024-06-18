@@ -26,7 +26,7 @@ class ChunkedMapLoader {
 
         // Open file with Input File (IF) stream
         std::ifstream chunkfile; chunkfile.open(filename);
-        //std::ifstream chunkfile; chunkfile.open("../../src/ressources/first_car.obj");
+        //std::ifstream chunkfile; chunkfile.open(".././resources/first_car.obj");
 
         // Assertion to check if file is open
         if (!chunkfile.is_open()) {

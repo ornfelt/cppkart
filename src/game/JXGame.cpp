@@ -46,7 +46,7 @@ JXGame::JXGame() {
 
   //! Disgusting Hack for Physics Chunks Init (Getting Shared Vertices from Geometry Object)
   RenderRsrcManager& res = renderer.get()->getRessourcePtr();
-  std::shared_ptr<Geometry> terrainGeom = res.tryGetGeometry("../src/ressources/DE_Map1/Landscape01.obj");
+  std::shared_ptr<Geometry> terrainGeom = res.tryGetGeometry("./resources/DE_Map1/Landscape01.obj");
 
   if(terrainGeom == nullptr) {
     printf("Terrain Geometry not found\n");
@@ -55,7 +55,7 @@ JXGame::JXGame() {
   std::vector<GLfloat> terrainVerts = terrainGeom.get()->_vertices;
   std::vector<GLuint> terrainIndices = terrainGeom.get()->_indices;
 
-  physicsChunkManager = std::make_unique<PhysicsChunkManager>(terrainVerts, "../src/ressources/chunk_map.txt");
+  physicsChunkManager = std::make_unique<PhysicsChunkManager>(terrainVerts, "./resources/chunk_map.txt");
 }
 
   bool Running = true;
@@ -165,10 +165,10 @@ void JXGame::Run() {
                 //! Hacky way to get shared vertices from Geometry Object
 
                 RenderRsrcManager& res = renderer.get()->getRessourcePtr();
-                std::shared_ptr<Geometry> terrainGeom = res.tryGetGeometry("../src/ressources/Landscape01.obj");
+                std::shared_ptr<Geometry> terrainGeom = res.tryGetGeometry("./resources/Landscape01.obj");
                 std::vector<GLfloat> terrainVerts = terrainGeom.get()->_vertices;
 
-                GameDebugHelper::ExportVertexMappingToFile(terrainVerts, "../src/ressources/cpp_vertex_mapping.txt");
+                GameDebugHelper::ExportVertexMappingToFile(terrainVerts, "./resources/cpp_vertex_mapping.txt");
 
             }
             

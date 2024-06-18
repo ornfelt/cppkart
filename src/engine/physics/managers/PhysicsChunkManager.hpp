@@ -3,7 +3,8 @@
 
 #include <vector>
 #include <memory>
-#include <bullet/btBulletDynamicsCommon.h>
+//#include <bullet/btBulletDynamicsCommon.h>
+#include <btBulletDynamicsCommon.h>
 
 // Local Imports:
 #include "engine/physics/PhysicsWorldSingleton.h"

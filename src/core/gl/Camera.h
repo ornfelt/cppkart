@@ -10,7 +10,8 @@
 #include <memory> // For std::unique_ptr
 
 //For User Input on Windows
-#include <SDL2/SDL.h>
+//#include <SDL2/SDL.h>
+#include <SDL.h>
 
 #include"shaderClass.h"
 

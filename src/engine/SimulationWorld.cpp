@@ -6,16 +6,16 @@ SimulationWorld::SimulationWorld() {
 
     //* Beta Testing 
 
-    simObj = std::make_shared<VehicleObject>("../src/ressources/volga/volga.obj", "../src/ressources/first_car_wheel.obj", "../src/ressources/volga/volga.png");
+    simObj = std::make_shared<VehicleObject>("./resources/volga/volga.obj", "./resources/first_car_wheel.obj", "./resources/volga/volga.png");
 
     simObj->position = glm::vec3(50.0f, 0.0f, 0.0f);
     simObj->rotation = glm::quat(1.0f, 0.0f, 0.0f, 0.0f);
     
     entities.push_back(simObj);
 
-    auto simObj2 = std::make_shared<SimulationObject>("../src/ressources/DE_Map1/Landscape01.obj", "../src/ressources/DE_Map1/Map01_Albedo.png");
+    auto simObj2 = std::make_shared<SimulationObject>("./resources/DE_Map1/Landscape01.obj", "./resources/DE_Map1/Map01_Albedo.png");
 
-    //std::vector<LoadedChunk> chunks = ChunkedMapLoader::loadChunks("../src/ressources/chunk_map.txt");
+    //std::vector<LoadedChunk> chunks = ChunkedMapLoader::loadChunks("./resources/chunk_map.txt");
 
     simObj2->rotation = glm::quat(1.0f, 0.0f, 0.0f, 0.0f);
 

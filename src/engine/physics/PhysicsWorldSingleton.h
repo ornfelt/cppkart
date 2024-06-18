@@ -1,10 +1,14 @@
 #ifndef PHYSICSWORLDSINGLETON_CLASS_H
 #define PHYSICSWORLDSINGLETON_CLASS_H
 
-#include <bullet/btBulletCollisionCommon.h>
-#include <bullet/btBulletDynamicsCommon.h>
-#include <bullet/BulletCollision/CollisionShapes/btHeightfieldTerrainShape.h>
-#include <bullet/BulletDynamics/Vehicle/btRaycastVehicle.h>
+//#include <bullet/btBulletCollisionCommon.h>
+//#include <bullet/btBulletDynamicsCommon.h>
+//#include <bullet/BulletCollision/CollisionShapes/btHeightfieldTerrainShape.h>
+//#include <bullet/BulletDynamics/Vehicle/btRaycastVehicle.h>
+#include <btBulletCollisionCommon.h>
+#include <btBulletDynamicsCommon.h>
+#include <BulletCollision/CollisionShapes/btHeightfieldTerrainShape.h>
+#include <BulletDynamics/Vehicle/btRaycastVehicle.h>
 
 class PhysicsWorldSingleton {
 private:

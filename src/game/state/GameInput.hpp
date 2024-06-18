@@ -2,7 +2,8 @@
 #define GAMEINPUT_HPP
 
 
-#include <SDL2/SDL.h>
+//#include <SDL2/SDL.h>
+#include <SDL.h>
 #include <unordered_map>
 #include <iostream>
 #include <vector>

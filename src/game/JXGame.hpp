@@ -4,7 +4,8 @@
 #include <stdio.h>
 #include <stdint.h>
 #include <assert.h>
-#include <SDL2/SDL.h>
+//#include <SDL2/SDL.h>
+#include <SDL.h>
 #include <glad/glad.h>
 #include <memory>
 #include <chrono>
