@@ -1,8 +1,12 @@
 #ifndef GAMEINPUT_HPP
 #define GAMEINPUT_HPP
 
-
+#ifdef _WIN32
+#include <SDL.h>
+#else
 #include <SDL2/SDL.h>
+#endif
+
 #include <unordered_map>
 #include <iostream>
 #include <vector>

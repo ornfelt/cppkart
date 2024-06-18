@@ -1,7 +1,11 @@
 #ifndef VEHICLEPHYSICS_CLASS_HPP
 #define VEHICLEPHYSICS_CLASS_HPP
 
-#include <bullet/btBulletDynamicsCommon.h>  // Assuming you have this included for Bullet physics types
+#ifdef _WIN32
+#include <btBulletDynamicsCommon.h>
+#else
+#include <bullet/btBulletDynamicsCommon.h>
+#endif
 #include "PhysicsWorldSingleton.h"
 
 class VehiclePhysics {

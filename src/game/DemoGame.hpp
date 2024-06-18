@@ -6,7 +6,11 @@
 #include <stdio.h>
 #include <stdint.h>
 #include <assert.h>
+#ifdef _WIN32
+#include <SDL.h>
+#else
 #include <SDL2/SDL.h>
+#endif
 #include <glad/glad.h>
 #include <memory>
 #include <chrono>

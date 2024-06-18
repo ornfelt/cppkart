@@ -1,7 +1,11 @@
 #ifndef GAMESCENE_HPP
 #define GAMESCENE_HPP
 
+#ifdef _WIN32
+#include <SDL.h>
+#else
 #include <SDL2/SDL.h>
+#endif
 
 #include "jx_engine/core/SceneManager.hpp"
 #include "jx_engine/core/Scene.hpp"

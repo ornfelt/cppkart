@@ -4,6 +4,12 @@
 #include <iostream>
 #include <string>
 
+// Include Windows headers if needed
+#ifdef _WIN32
+#include <windows.h>
+#undef ERROR  // Undefine conflicting macro
+#endif
+
 class Logger {
     public:
 

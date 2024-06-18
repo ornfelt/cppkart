@@ -1,8 +1,13 @@
 #ifndef PHYSICSWORLDSINGLETON_CLASS_H
 #define PHYSICSWORLDSINGLETON_CLASS_H
 
-#include <bullet/btBulletCollisionCommon.h>
+#ifdef _WIN32
+#include <btBulletDynamicsCommon.h>
+#include <btBulletCollisionCommon.h>
+#else
 #include <bullet/btBulletDynamicsCommon.h>
+#include <bullet/btBulletCollisionCommon.h>
+#endif
 
 class PhysicsWorldSingleton {
 private:

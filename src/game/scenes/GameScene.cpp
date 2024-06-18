@@ -158,8 +158,8 @@ void GameScene::init() {
 
     std::shared_ptr<Entity> terrainEntity = std::make_shared<Entity>();
 
-    // auto terrainRenderComponent = std::make_shared<RenderComponent>("../src/ressources/DE_Map1/Landscape01.obj",
-    //                                                        "../src/ressources/DE_Map1/Map01_Albedo.png", 
+    // auto terrainRenderComponent = std::make_shared<RenderComponent>("./resources/DE_Map1/Landscape01.obj",
+    //                                                        "./resources/DE_Map1/Map01_Albedo.png", 
     //                                                        renderRsrcManager);
 
     //* ----------------- Terrain Entity Definition ----------------- *//
@@ -167,26 +167,26 @@ void GameScene::init() {
     float terrainEntityScale = 15.0f;
 
 
-    auto terrainRenderComponent = std::make_shared<RenderComponent>("../src/ressources/DE_MAP0/MAPOI.obj",
-                                                           "../src/ressources/DE_Map1/Map01_Albedo.png", 
+    auto terrainRenderComponent = std::make_shared<RenderComponent>("./resources/DE_MAP0/MAPOI.obj",
+                                                           "./resources/DE_Map1/Map01_Albedo.png", 
                                                            renderRsrcManager, 0, true);
 
     terrainRenderComponent->SetGLContext(renderer.get()->useTextureLOC, renderer.get()->modelMatrixLOC, renderer.get()->colorUniformLocation, terrainEntityScale);
 
-    auto terrainRoadRenderComponent = std::make_shared<RenderComponent>("../src/ressources/DE_MAP0/MAPOI.obj",
-                                                           "../src/ressources/DE_MAP0/ROAD_TEX.jpg", 
+    auto terrainRoadRenderComponent = std::make_shared<RenderComponent>("./resources/DE_MAP0/MAPOI.obj",
+                                                           "./resources/DE_MAP0/ROAD_TEX.jpg", 
                                                            renderRsrcManager, 2, true);
 
     terrainRoadRenderComponent->SetGLContext(renderer.get()->useTextureLOC, renderer.get()->modelMatrixLOC, renderer.get()->colorUniformLocation, terrainEntityScale);
 
-    auto terrainBottomRoadRenderComponent = std::make_shared<RenderComponent>("../src/ressources/DE_MAP0/MAPOI.obj",
-                                                           "../src/ressources/DE_MAP0/STONE_WALL_04.jpg", 
+    auto terrainBottomRoadRenderComponent = std::make_shared<RenderComponent>("./resources/DE_MAP0/MAPOI.obj",
+                                                           "./resources/DE_MAP0/STONE_WALL_04.jpg", 
                                                            renderRsrcManager, 3, false);
 
     terrainBottomRoadRenderComponent->SetGLContext(renderer.get()->useTextureLOC, renderer.get()->modelMatrixLOC, renderer.get()->colorUniformLocation, terrainEntityScale);                                                          
 
 
-    auto terrainChunks_physics_Component = std::make_shared<TerrainChunksComponent>("../src/ressources/DE_MAP0/Small_Chunks_MAPOI.txt", terrainEntityScale);
+    auto terrainChunks_physics_Component = std::make_shared<TerrainChunksComponent>("./resources/DE_MAP0/Small_Chunks_MAPOI.txt", terrainEntityScale);
     ecManager.get()->setTerrainChunks(terrainChunks_physics_Component);
 
     terrainEntity->addComponent(terrainRenderComponent);
@@ -207,8 +207,8 @@ void GameScene::init() {
     playerVehicleEntity->addComponent(playerVehicleComponent);
     
 
-    auto playerVehicleRenderComponent = std::make_shared<VehicleRenderComponent>("../src/ressources/volga/volga.obj", "../src/ressources/first_car_wheel.obj",
-                                                           "../src/ressources/volga/volga.png", 
+    auto playerVehicleRenderComponent = std::make_shared<VehicleRenderComponent>("./resources/volga/volga.obj", "./resources/first_car_wheel.obj",
+                                                           "./resources/volga/volga.png", 
                                                            renderRsrcManager, 0);
 
     playerVehicleRenderComponent->SetGLContext(renderer.get()->useTextureLOC, renderer.get()->modelMatrixLOC, renderer.get()->colorUniformLocation, 1.0f);

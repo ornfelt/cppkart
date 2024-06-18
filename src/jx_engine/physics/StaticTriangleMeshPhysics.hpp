@@ -1,7 +1,11 @@
 #ifndef STATICTRIANGLEMESHPHYSICS_CLASS_HPP
 #define STATICTRIANGLEMESHPHYSICS_CLASS_HPP
 
+#ifdef _WIN32
+#include <btBulletDynamicsCommon.h>
+#else
 #include <bullet/btBulletDynamicsCommon.h>
+#endif
 #include <stb/stb_image.h>
 #include <glm/glm.hpp>
 #include <glm/gtc/type_ptr.hpp>

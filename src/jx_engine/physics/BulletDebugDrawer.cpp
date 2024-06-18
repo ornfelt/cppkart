@@ -1,7 +1,11 @@
 #ifndef BULLET_DEBUG_DRAWER_H
 #define BULLET_DEBUG_DRAWER_H
 
+#ifdef _WIN32
+#include <btBulletCollisionCommon.h>
+#else
 #include <bullet/btBulletCollisionCommon.h>
+#endif
 #include <glad/glad.h>
 #include <vector>
 
